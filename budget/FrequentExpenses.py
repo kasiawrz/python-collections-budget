@@ -1,3 +1,5 @@
+import collections
+
 import Expense
 
 expenses = Expense.Expenses()
@@ -7,4 +9,8 @@ spending_categories = []
 
 for expense in expenses.list:
     spending_categories.append(expense.category)
-    print(expense.category)
+
+spending_counter = collections.Counter(spending_categories)
+top5 = spending_counter.most_common(5)
+
+print(top5)
